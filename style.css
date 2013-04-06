@@ -1,0 +1,645 @@
+/*
+Theme Name: Graphite
+Theme URI: http://github.com/ukdave/wp-graphite
+Author: David Bull
+Author URI: http://www.uk-dave.com 
+Version: 1.0.0
+Description: Simple HTML 5 theme built with Twitter Bootstrap, Font Awesome, and Open Sans. Features optional right-hand sidebar, custom header, custom menu, and widgets in the footer.
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: gray, light, one-column, right-sidebar, fixed-width, custom-header, custom-menu, post-formats, theme-options
+Text Domain: graphite
+
+Graphite WordPress Theme, Copyright 2013 David Bull.
+Graphite is distributed under the terms of the GNU GPL.
+*/
+
+/*
+ * Main style rules
+ */
+body {
+	background-color: #222222;
+	padding-bottom: 2em;
+}
+
+img { 
+	vertical-align: baseline; 
+}
+
+blockquote p {
+	font-size: inherit;
+}
+
+.assistive-text, 
+.site .screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+}
+
+@media (max-width: 767px) {
+	body {
+		padding-left: 0 !important; /* Override Bootstrap */
+		padding-right: 0 !important; /* Override Bootstrap */
+	}
+	.container {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+}
+
+
+
+
+/*
+ * The page (header and content, basically everything except the footer)
+ */
+
+.thepage {
+	background-color: #ededed;
+	padding-bottom: 2em;
+}
+
+
+
+
+
+/*
+ * Masthead (logo & menu)
+ */
+
+.masthead {
+	margin-top: 5px;
+}
+
+	.masthead .brand .title img {
+		float: left;
+		margin-right: 0.5em;
+	}
+
+	.masthead .brand .title h1 {
+		float: left;
+	}
+
+	.masthead .brand .icons {
+		margin-top: 1.4em;
+	}
+
+		.masthead .brand .icons a {
+			margin-left: 0.25em;
+			opacity: 0.5;
+			-webkit-transition: all 0.7s ease 0s;
+			   -moz-transition: all 0.7s ease 0s;
+			    -ms-transition: all 0.7s ease 0s;
+			     -o-transition: all 0.7s ease 0s;
+			        transition: all 0.7s ease 0s;
+		}
+
+		.masthead .brand .icons a:hover {
+			opacity: 1;
+		}
+
+	.masthead .navbar {
+		background-color: #fbfbfb;
+		color: rgba(255, 255, 255, 0.7);
+		box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset, 0 1px 3px rgba(0, 0, 0, 0.25);
+		-webkit-border-radius: 4px;
+		   -moz-border-radius: 4px;
+		        border-radius: 4px;
+	}
+
+	.masthead .navbar.navbar-inverse {
+		background-color: rgba(0,0,0,0.12);
+		background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.9) 100%); /* Chrome10+,Safari5.1+ */
+		background:    -moz-linear-gradient(top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.9) 100%); /* FF3.6+ */
+		background:     -ms-linear-gradient(top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.9) 100%); /* IE10+ */
+		background:      -o-linear-gradient(top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.9) 100%); /* Opera 11.10+ */
+		background:        -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.8)), color-stop(100%, rgba(0, 0, 0, 0.9))); /* Chrome,Safari4+ */
+		background:         linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.9) 100%); /* W3C */
+		border-top: 1px solid rgba(0,0,0,0.9);
+	}
+
+		.masthead .navbar .navbar-inner {
+		    background: none repeat scroll 0 0 transparent;
+			border: 0 none;
+			min-height: 38px;
+		}
+
+			.masthead .navbar .nav > li > a {
+				padding: 9px 12px 10px;
+				text-decoration: none;
+			}
+
+			.masthead .navbar.navbar-inverse .nav > li > a {
+				color: rgba(255, 255, 255, 0.8);
+				text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+			}
+
+			.masthead .navbar .nav > li > a:hover {
+				background-color: transparent;
+				text-decoration: none;
+			}
+
+			.masthead .navbar.navbar-inverse .nav > li > a:hover {
+				color: rgba(255, 255, 255, 0.9);
+			}
+
+			.masthead .navbar .nav > li.active > a {
+				background-color: rgba(0, 0, 0, 0.1);
+				color: #fff;
+				text-decoration: none;
+			}
+
+			.masthead .navbar.navbar-inverse .nav > li.active > a {
+				background-color: rgba(0, 0, 0, 0.1);
+			}
+
+		.masthead .navbar .search-query {
+			background-image: url(assets/images/search.png);
+			background-repeat: no-repeat;
+			background-attachment: scroll;
+			background-position: 5px 50%;
+			background-size: 16px 16px;
+			line-height: 1.5;
+			padding-left: 28px;
+			position: relative;
+			top: -1px;
+			width: 56px; /* span1 */
+			-webkit-transition: all 0.7s ease 0s;
+			   -moz-transition: all 0.7s ease 0s;
+			    -ms-transition: all 0.7s ease 0s;
+			     -o-transition: all 0.7s ease 0s;
+			        transition: all 0.7s ease 0s;
+		}
+
+		.masthead .navbar .search-query:focus {
+			padding: 4px 14px 4px 28px;
+			width: 156px; /* span2 */
+		}
+
+		.masthead .navbar.navbar-inverse .search-query:focus {
+			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.15);
+			border: 1px #111111 solid;
+		}
+
+/* Tweaks to make navbar dropdowns activate on hover (need to remove data-toggle="dropdown" on links) */
+.masthead .navbar .nav .dropdown:hover > .dropdown-menu {
+	display: block;
+}
+	.masthead .navbar .nav .dropdown-menu {
+		margin-top: 0px;
+	}
+		.masthead .navbar .nav .dropdown-submenu .dropdown-menu {
+			margin-top: -6px;
+		}
+
+
+
+
+
+/*
+ * Articles
+ */
+
+article {
+	background-color: #fbfbfb;
+	box-shadow: 0 1px 4px #ccc;
+	padding: 1em 2em;
+}
+
+	article + article {
+		margin-top: 2em;
+	}
+
+article header {
+	margin-bottom: 10px;
+}
+
+	article header .entry-title {
+		margin: 0;
+	}
+	
+		article header .entry-title a {
+			color: inherit;
+		}
+
+		article header .entry-title a:hover {
+			color: #0088cc;
+			text-decoration: none;
+		}
+
+article .entry-content p:last-child {
+	margin-bottom: 0;
+}
+
+article footer {
+	font-style: italic;
+	border-top: 1px solid rgba(0, 0, 0, 0.13);
+	padding-top: 10px;
+	margin-top: 10px;
+}
+
+	article footer ul.meta {
+		list-style: none outside none;
+		margin: 0;
+	}
+
+		article footer ul.meta li {
+			color: rgba(0, 0, 0, 0.3);
+			display: inline-block;
+			padding-right: 1em;
+		}
+
+		article footer ul.meta li:hover {
+			color: rgba(0, 0, 0, 0.6);
+		}
+
+			article footer ul.meta li a {
+				color: inherit;
+				text-decoration: none;
+			}
+
+			article footer ul.meta li a:hover {
+				color: inherit;
+				text-decoration: none;
+			}
+
+#nav-below {
+	margin-top: 2em;
+}
+
+
+
+
+
+/*
+ * Articles: Not Found;
+ */
+article.not-found h1 {
+	text-align: center;
+}
+
+article.not-found p {
+	text-align: center;
+	color: rgba(25, 25, 25, 0.7);
+	margin-bottom: 9px;
+	padding-bottom: 0;
+}
+
+article.not-found form {
+	text-align: center;
+}
+
+
+
+
+
+/*
+ * Comments
+ */
+
+.comments-title {
+	margin-bottom: 0;
+}
+
+#reply-title {
+	margin-bottom: 0;
+}
+
+.comments-area ol {
+	list-style: none outside none;
+	margin: 0;
+}
+	.comments-area li ol li {
+		margin-left: 2em;
+	}
+
+	.comments-area article {
+		margin-bottom: 2em;
+	}
+
+		.comments-area article header {
+			color: #5E5E5E;
+			margin-bottom: 1em;
+		}
+
+			.comments-area article header img {
+				float: left;
+				line-height: 0;
+				padding: 0;
+			}
+
+			.comments-area article header cite, .comments-area article header time {
+				display: block;
+				margin-left: 3.5rem;
+			}
+
+			.comments-area article header cite {
+				font-size: 130%;
+			}
+
+		.comments-area article p.comment-awaiting-moderation {
+			margin-left: 3.5rem;
+		}
+
+		.comments-area article section {
+			margin-left: 3.5rem;
+		}
+
+		.comments-area article section p:last-child {
+			margin-bottom: 0;
+		}
+
+
+
+
+
+/*
+ * Widgets
+ */
+
+#right-sidebar .widget {
+	border-top: 1px dotted #8a8a8a;
+	padding-top: 0.5em;
+}
+
+#right-sidebar .widget:first-child {
+	border-top-width: 0;
+	padding-top: 0;
+}
+
+#footer-sidebar .widget h3 {
+	color: rgba(214, 214, 214, 0.6);
+}
+
+	#footer-sidebar .widget h3 a {
+		color: rgba(214, 214, 214, 0.6);
+	}
+
+	#footer-sidebar .widget h3 a:hover {
+		color: rgba(214, 214, 214, 0.6);
+		text-decoration: none;
+	}
+
+.widget h3 {
+	color: rgba(25, 25, 25, 0.7);
+	margin: 0 0 0.6em 0;
+	padding: 3px 8px 3px 0;
+	font-size: 110%;
+	line-height: 1.3em;
+}
+
+.widget ul {
+    margin: 0 0 10px 0.4em;
+    list-style: disc outside none;
+}
+
+	.widget ul li {
+		display: block;
+		list-style: none outside none;
+		padding: 0 2px;
+	}
+
+.widget_recent_comments li {
+	padding-top: 0.5em;
+}
+
+.widget_recent_comments li:first-child {
+	padding-top: 0;
+}
+
+.widget_twitter li {
+	padding-top: 0.5em;
+}
+
+.widget_twitter li:first-child {
+	padding-top: 0;
+}
+
+.widget_twitter .timesince {
+	font-style: italic;
+	color: rgba(214, 214, 214, 0.3);
+}
+
+
+
+
+
+/*
+ * Footer
+ */
+
+.footer {
+	background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.6) 0px, rgba(0, 0, 0, 0) 10px); /* Chrome10+,Safari5.1+ */
+	background:    -moz-linear-gradient(top, rgba(0, 0, 0, 0.6) 0px, rgba(0, 0, 0, 0) 10px); /* FF3.6+ */
+	background:     -ms-linear-gradient(top, rgba(0, 0, 0, 0.6) 0px, rgba(0, 0, 0, 0) 10px); /* IE10+ */
+	background:      -o-linear-gradient(top, rgba(0, 0, 0, 0.6) 0px, rgba(0, 0, 0, 0) 10px); /* Opera 11.10+ */
+	background:        -webkit-gradient(linear, left top, left bottom, color-stop(0px, rgba(0, 0, 0, 0.6)), color-stop(10px, rgba(0, 0, 0, 0))); /* Chrome,Safari4+ */
+	background:         linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0px, rgba(0, 0, 0, 0) 10px); /* W3C */
+	color: rgba(214, 214, 214, 0.6);
+}
+
+	.footer .container {
+		padding-top: 1em;
+	}
+
+	.footer .widget ul {
+		margin: 0;
+	}
+
+
+
+
+
+/*
+ * WordPress Core
+ */
+
+/* Alignment Classes */
+.alignleft { 
+	float: left; 
+}
+
+.alignright { 
+	float: right; 
+}
+
+.aligncenter { 
+	display: block; 
+	margin-left: auto; 
+	margin-right: auto; 
+}
+
+img.alignleft { 
+	margin: 0 1em 1em 0; 
+}
+
+img.alignright { 
+	margin: 0 0 1em 1em; 
+}
+
+img.aligncenter { 
+	margin-top: 0.857143rem; 
+	margin-bottom: 0.857143rem;
+}
+
+/* Caption Related Classes */
+.wp-caption .wp-caption-text, 
+.gallery-caption, 
+.entry-caption,
+table > caption {
+	color: #757575;
+	font-style: italic;
+}
+table > caption { 
+	text-align: inherit;
+	caption-side: bottom;
+}
+
+/* Post Classes */
+.sticky {}
+
+/* Comment Classes */
+.bypostauthor {}
+
+/* Gallery Classes */
+.gallery a {
+	display: block;
+}
+
+.gallery-item a, 
+.gallery-caption {
+    width: 90%;
+}
+
+.gallery .gallery-icon img {
+    height: auto;
+    max-width: 90%;
+    padding: 5%;
+	border: 1px solid #ddd !important; /* !important to override wp gallery css rules (#gallery-1 img). */
+	-webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+	        border-radius: 4px;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+	   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+	        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+	-webkit-transition: all 0.2s ease-in-out;
+	   -moz-transition: all 0.2s ease-in-out;
+	    -ms-transition: all 0.2s ease-in-out;
+	     -o-transition: all 0.2s ease-in-out;
+	        transition: all 0.2s ease-in-out;
+}
+
+.image-attachment div.attachment {
+	text-align: center;
+}
+
+.image-attachment div.attachment img {
+	display: block;
+	height: auto;
+	margin: 0 auto;
+	max-width: 100%;
+}
+
+/* Image Classes */
+.entry-content img, 
+.comment-content img, 
+.widget img, 
+img.header-image, 
+.author-avatar img, 
+img.wp-post-image {
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+	   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+	        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+img.wp-smiley, 
+.rsswidget img {
+	border: 0 none !important;
+	border-radius: 0 0 0 0 !important;
+	box-shadow: none !important;
+	margin-bottom: 0 !important;
+	margin-top: 0 !important;
+	padding: 0 !important;
+}
+
+/* Headings */
+.entry-header .entry-title {
+	font-size: 22px;
+	font-size: 1.571428571rem;
+}
+.entry-content h1, 
+.entry-content h2, 
+.entry-content h3, 
+.entry-content h4, 
+.entry-content h5, 
+.entry-content h6 {
+	clear: both;
+}
+.entry-content h1,
+.comment-content h1 {
+	font-size: 21px;
+	font-size: 1.5rem;
+	line-height: 1.5;
+}
+.entry-content h2,
+.comment-content h2 {
+	font-size: 18px;
+	font-size: 1.285714286rem;
+	line-height: 1.6;
+}
+.entry-content h3,
+.comment-content h3 {
+	font-size: 16px;
+	font-size: 1.142857143rem;
+	line-height: 1.846153846;
+}
+.entry-content h4,
+.comment-content h4 {
+	font-size: 14px;
+	font-size: 1rem;
+	line-height: 1.846153846;
+}
+.entry-content h5,
+.comment-content h5 {
+	font-size: 13px;
+	font-size: 0.928571429rem;
+	line-height: 1.846153846;
+}
+.entry-content h6,
+.comment-content h6 {
+	font-size: 12px;
+	font-size: 0.857142857rem;
+	line-height: 1.846153846;
+}
+
+
+
+
+
+/* Sharedaddy Rules */
+div.sharedaddy .sd-block {
+	padding-bottom: 0 !important;
+}
+
+	div.sharedaddy .sd-title {
+		color: rgba(0, 0, 0, 0.3) !important;
+		font-family: inherit !important;
+		font-weight: normal !important;
+		margin-top: 5px !important;
+		width: 9% !important;
+	}
+
+	div.sharedaddy .sd-content  {
+		width: 91% !important;
+		margin-top: 0 !important;
+	}
+
+		div.sharedaddy .sd-content ul li {
+			margin-bottom: 0 !important;
+		}
+
+/* Syntax Highlighter Rules */
+.syntaxhighlighter table td.code .container:before,
+.syntaxhighlighter table td.code .container:after {
+	display: block; /* Necessary because Bootstrap .container sets display to 'table'
+}
