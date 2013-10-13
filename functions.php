@@ -209,7 +209,7 @@ function graphite_scripts_styles() {
 
 	// Enqueue stylesheets
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/bootstrap-2.3.1-custom/css/bootstrap.min.css', array(), '2.3.1-custom') ;
-	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/font-awesome-3.0.2/css/font-awesome.min.css', array(), '3.0.2' );
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/font-awesome-3.2.1/css/font-awesome.min.css', array(), '3.2.1' );
 
 	$protocol = is_ssl() ? 'https' : 'http';
 	$query_args = array(
