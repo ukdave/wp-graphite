@@ -124,6 +124,8 @@ function graphite_body_class( $classes ) {
 		$classes[] = 'single-author';
 	}
 
+	$classes[] = 'preload'
+
 	return $classes;
 }
 add_filter( 'body_class', 'graphite_body_class' );
