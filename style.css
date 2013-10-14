@@ -654,5 +654,5 @@ div.sharedaddy .sd-block {
 /* Syntax Highlighter Rules */
 .syntaxhighlighter table td.code .container:before,
 .syntaxhighlighter table td.code .container:after {
-	display: block; /* Necessary because Bootstrap .container sets display to 'table'
+	display: block; /* Necessary because Bootstrap .container sets display to 'table' */
 }
