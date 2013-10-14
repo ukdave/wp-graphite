@@ -38,17 +38,23 @@
 						</div>
 						<div class="icons pull-right">
 							<?php $options = get_option( 'graphite_theme_options' ); ?>
+							<?php if ( $options['flickr_url'] ) : ?>
+								<a class="flickrlink" href="<?php echo esc_url( $options['flickr_url'] ); ?>" target="_blank"><img alt="Flickr" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/flickr.png" width="24" height="24" /></a>
+							<?php endif; ?>
+							<?php if ( $options['github_url'] ) : ?>
+								<a class="githublink" href="<?php echo esc_url( $options['github_url'] ); ?>" target="_blank"><img alt="GitHub" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/github.png" width="24" height="24" /></a>
+							<?php endif; ?>
 							<?php if ( $options['facebook_url'] ) : ?>
-								<a class="facebooklink" href="<?php echo esc_url( $options['facebook_url'] ); ?>" target="_blank"><img alt="Facebook" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/facebook.png"></a>
+								<a class="facebooklink" href="<?php echo esc_url( $options['facebook_url'] ); ?>" target="_blank"><img alt="Facebook" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/facebook.png" width="24" height="24" /></a>
 							<?php endif; ?>
 							<?php if ( $options['linkedin_url'] ) : ?>
-								<a class="linkedinlink" href="<?php echo esc_url( $options['linkedin_url'] ); ?>" target="_blank"><img alt="LinkedIn" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/linkedin.png"></a>
+								<a class="linkedinlink" href="<?php echo esc_url( $options['linkedin_url'] ); ?>" target="_blank"><img alt="LinkedIn" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/linkedin.png" width="24" height="24" /></a>
 							<?php endif; ?>
 							<?php if ( $options['twitter_url'] ) : ?>
-								<a class="twitterlink" href="<?php echo esc_url( $options['twitter_url'] ); ?>" target="_blank"><img alt="Twitter" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/twitter.png"></a>
+								<a class="twitterlink" href="<?php echo esc_url( $options['twitter_url'] ); ?>" target="_blank"><img alt="Twitter" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/twitter.png" width="24" height="24" /></a>
 							<?php endif; ?>
 							<?php if ( $options['show_feed'] ) : ?>
-								<a class="rsslink" href="<?php esc_url( bloginfo( 'rss2_url' ) ); ?>" target="_blank"><img alt="RSS" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/rss.png"></a>
+								<a class="rsslink" href="<?php esc_url( bloginfo( 'rss2_url' ) ); ?>" target="_blank"><img alt="RSS" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/rss.png" width="24" height="24" /></a>
 							<?php endif; ?>
 						</div>
 					</div><!-- /.brand -->

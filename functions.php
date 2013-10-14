@@ -41,6 +41,18 @@ add_action( 'template_redirect', 'graphite_content_width' );
  * @since Graphite 1.0.0
  */
 function graphite_customize_register( $wp_customize ) {
+	$wp_customize->add_setting( 'graphite_theme_options[flickr_url]', array(
+		'default'     => '',
+		'transport'   => 'refresh',
+		'capability'  => 'edit_theme_options',
+		'type'        => 'option'
+	) );
+	$wp_customize->add_setting( 'graphite_theme_options[github_url]', array(
+		'default'     => '',
+		'transport'   => 'refresh',
+		'capability'  => 'edit_theme_options',
+		'type'        => 'option'
+	) );
 	$wp_customize->add_setting( 'graphite_theme_options[facebook_url]', array(
 		'default'     => '',
 		'transport'   => 'refresh',
@@ -71,6 +83,18 @@ function graphite_customize_register( $wp_customize ) {
 		'priority'   => 1000,
 	) );
 
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'flickr_url', array(
+		'label'      => __( 'Flickr Photostream URL', 'graphite' ),
+		'section'    => 'graphite_social_section',
+		'settings'   => 'graphite_theme_options[flickr_url]',
+		'prority'    => 30
+	) ) );
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'github_url', array(
+		'label'      => __( 'GitHub Profile URL', 'graphite' ),
+		'section'    => 'graphite_social_section',
+		'settings'   => 'graphite_theme_options[github_url]',
+		'prority'    => 30
+	) ) );
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'facebook_url', array(
 		'label'      => __( 'Facebook Profile URL', 'graphite' ),
 		'section'    => 'graphite_social_section',
@@ -123,6 +147,8 @@ function graphite_body_class( $classes ) {
 	if ( ! is_multi_author() ) {
 		$classes[] = 'single-author';
 	}
+
+	$classes[] = 'preload';
 
 	return $classes;
 }
@@ -207,7 +233,7 @@ function graphite_scripts_styles() {
 
 	// Enqueue stylesheets
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/bootstrap-2.3.1-custom/css/bootstrap.min.css', array(), '2.3.1-custom') ;
-	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/font-awesome-3.0.2/css/font-awesome.min.css', array(), '3.0.2' );
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/font-awesome-3.2.1/css/font-awesome.min.css', array(), '3.2.1' );
 
 	$protocol = is_ssl() ? 'https' : 'http';
 	$query_args = array(
@@ -216,11 +242,11 @@ function graphite_scripts_styles() {
 	);
 	wp_enqueue_style( 'graphite-fonts', add_query_arg( $query_args, "$protocol://fonts.googleapis.com/css" ), array(), null );
 
-	wp_enqueue_style( 'graphite', get_stylesheet_uri(), array( 'bootstrap', 'font-awesome', 'graphite-fonts' ), '1.0.0');
+	wp_enqueue_style( 'graphite', get_stylesheet_uri(), array( 'bootstrap', 'font-awesome', 'graphite-fonts' ), '1.1.0');
 
 	// Enqueue scripts
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/assets/bootstrap-2.3.1-custom/js/bootstrap.min.js', array( 'jquery' ), '2.3.1-custom' );
-	wp_enqueue_script( 'graphite', get_template_directory_uri() . '/assets/graphite.js', array( 'jquery' ), '1.0.0' );
+	wp_enqueue_script( 'graphite', get_template_directory_uri() . '/assets/graphite.js', array( 'jquery' ), '1.1.0' );
 
 	// Load html5shiv
 	wp_enqueue_script( 'html5shiv', get_template_directory_uri() . '/assets/html5shiv-3.6.2pre/html5shiv-printshiv.min.js', array(), '3.6.2pre' );
