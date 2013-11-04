@@ -2,6 +2,9 @@
   "vars": {
     "@font-family-sans-serif": "'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif",
     "@font-size-base": "12px",
+    "@line-height-base": "1.666666667",
+    "@line-height-large": "1.551666667",
+    "@line-height-small": "1.750000001",
     "@headings-font-weight": "700"
   },
   "css": [

@@ -16,8 +16,11 @@ Graphite is distributed under the terms of the GNU GPL.
 
 /*
  * Only changes to custom version of bootstrap are:
- *  * Change @font-size-base from 14px to 12px.
  *  * Change @font-family-sans-serif from "'Helvetica Neue', Helvetica, Arial, sans-serif" to "'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif"
+ *  * Change @font-size-base from 14px to 12px.
+ *  * Change @line-height-base from 1.428571429 to 1.666666667
+ *  * Change @line-height-large from 1.33 to 1.551666667
+ *  * Change @line-height-small from 1.5 to 1.750000001
  *  * Change @headings-font-weight from 500 to 700
  */
 
