@@ -19,7 +19,7 @@ var GraphiteTheme = (function($) {
 	 */
 	pub.init = function() {
 		$('body').removeClass('preload');
-		$('input#submit').addClass('btn');
+		$('input#submit').addClass('btn').addClass('btn-default');
 		$('.widget_archive h3').prepend('<i class="icon-calendar"></i> ');
 		$('.widget_categories h3').prepend('<i class="icon-folder-close"></i> ');
 		$('.widget_links h3').prepend('<i class="icon-globe"></i> ');

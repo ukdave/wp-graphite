@@ -58,37 +58,34 @@
 							<?php endif; ?>
 						</div>
 					</div><!-- /.brand -->
-					<nav class="navbar navbar-inverse" role="navigation">
-						<div class="navbar-inner">
-							<div class="container">
-
-								<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-								<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-								</a>
-
-								<!-- Everything you want hidden at 940px or less, place within here -->
-								<div class="nav-collapse collapse">
-									<?php 
-										if ( has_nav_menu( 'primary' ) ) {
-											wp_nav_menu( array( 
-												'theme_location' => 'primary',
-												'container'      => false, 
-												'menu_class'     => 'nav', 
-												'fallback_cb'    => '',
-												'walker'         => new Graphite_Nav_Walker
-											) );
-										} else {
-											echo '<ul class="nav"><li><a href="#">' . __( 'No menu assigned.', 'graphite' ) . '</a></li></ul>';
-										}
-									?>
-									<form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>" class="navbar-search pull-right">
-										<input type="text" name="s" placeholder="<?php _e( 'Search', 'graphite' ); ?>" class="search-query" />
-									</form>
-								</div>
-							</div>
+					<nav class="navbar navbar-default navbar-inverse" role="navigation">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
 						</div>
+						<div class="collapse navbar-collapse navbar-ex1-collapse">
+							<?php
+								if ( has_nav_menu( 'primary' ) ) {
+									wp_nav_menu( array(
+										'theme_location' => 'primary',
+										'container'      => false,
+										'menu_class'     => 'nav navbar-nav',
+										'fallback_cb'    => '',
+										'walker'         => new Graphite_Nav_Walker
+									) );
+								} else {
+									echo '<ul class="nav"><li><a href="#">' . __( 'No menu assigned.', 'graphite' ) . '</a></li></ul>';
+								}
+							?>
+							<form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>" class="navbar-form navbar-right">
+								<div class="form-group">
+									<input type="text" name="s" placeholder="<?php _e( 'Search', 'graphite' ); ?>" class="form-control search-query" />
+								</div>
+							</form>
+						</div><!-- /.navbar-collapse -->
 					</nav><!-- /.navbar -->
 				</header><!-- /.masthead -->

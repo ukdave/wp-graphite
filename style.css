@@ -3,7 +3,7 @@ Theme Name: Graphite
 Theme URI: http://github.com/ukdave/wp-graphite
 Author: David Bull
 Author URI: http://www.uk-dave.com 
-Version: 1.1.0
+Version: 1.2.0
 Description: Simple HTML 5 theme built with Twitter Bootstrap, Font Awesome, and Open Sans. Features optional right-hand sidebar, custom header, custom menu, and widgets in the footer.
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -13,6 +13,13 @@ Text Domain: graphite
 Graphite WordPress Theme, Copyright 2013 David Bull.
 Graphite is distributed under the terms of the GNU GPL.
 */
+
+/*
+ * Only changes to custom version of bootstrap are:
+ *  * Change @font-size-base from 14px to 12px.
+ *  * Change @font-family-sans-serif from "'Helvetica Neue', Helvetica, Arial, sans-serif" to "'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif"
+ *  * Change @headings-font-weight from 500 to 700
+ */
 
 /*
  * Main style rules
@@ -30,33 +37,27 @@ blockquote p {
 	font-size: inherit;
 }
 
-.assistive-text, 
-.site .screen-reader-text {
-	clip: rect(1px, 1px, 1px, 1px);
-	position: absolute !important;
+.input-group-addon {
+	min-width: 3.2em; /* BS3 fix */
 }
 
-@media (max-width: 767px) {
-	body {
-		padding-left: 0 !important; /* Override Bootstrap */
-		padding-right: 0 !important; /* Override Bootstrap */
-	}
-	.container {
-		margin-left: 20px;
-		margin-right: 20px;
-	}
-}
+
 
 /* Animated media queries (http://css-tricks.com/animated-media-queries/) */
-.container, [class*="span"] {
-	transition: all 0.4s ease 0s
+.container {
+	-webkit-transition: all 0.4s ease 0s;
+	   -moz-transition: all 0.4s ease 0s;
+	    -ms-transition: all 0.4s ease 0s;
+	     -o-transition: all 0.4s ease 0s;
+	        transition: all 0.4s ease 0s;
 }
 
 .preload * {
 	-webkit-transition: none !important;
-	-moz-transition: none !important;
-	-ms-transition: none !important;
-	-o-transition: none !important;
+	   -moz-transition: none !important;
+	    -ms-transition: none !important;
+	     -o-transition: none !important;
+	        transition: none !important;
 }
 
 
@@ -90,6 +91,7 @@ blockquote p {
 	}
 
 	.masthead .brand .title h1 {
+		font-size: 33px; /* BS3 fix */
 		float: left;
 	}
 
@@ -114,13 +116,13 @@ blockquote p {
 	.masthead .navbar {
 		background-color: #fbfbfb;
 		color: rgba(255, 255, 255, 0.7);
-		box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset, 0 1px 3px rgba(0, 0, 0, 0.25);
-		-webkit-border-radius: 4px;
-		   -moz-border-radius: 4px;
-		        border-radius: 4px;
+		-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset, 0 1px 3px rgba(0, 0, 0, 0.25);
+		        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset, 0 1px 3px rgba(0, 0, 0, 0.25);
+		border: 0 none;
+		min-height: 38px;
 	}
 
-	.masthead .navbar.navbar-inverse {
+	.masthead .navbar-inverse {
 		background-color: rgba(0,0,0,0.12);
 		background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.9) 100%); /* Chrome10+,Safari5.1+ */
 		background:    -moz-linear-gradient(top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.9) 100%); /* FF3.6+ */
@@ -131,52 +133,93 @@ blockquote p {
 		border-top: 1px solid rgba(0,0,0,0.9);
 	}
 
-		.masthead .navbar .navbar-inner {
-		    background: none repeat scroll 0 0 transparent;
-			border: 0 none;
-			min-height: 38px;
+		.masthead .navbar .nav > .active > a, 
+		.masthead .navbar .nav > .active > a:hover, 
+		.masthead .navbar .nav > .active > a:focus {
+			-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125) inset;
+			        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125) inset;
 		}
 
-			.masthead .navbar .nav > li > a {
-				padding: 9px 12px 10px;
-				text-decoration: none;
-			}
+		.masthead .navbar .nav > li > a {
+			padding: 9px 12px 10px;
+			line-height: 20px;
+			text-decoration: none;
+		}
 
-			.masthead .navbar.navbar-inverse .nav > li > a {
-				color: rgba(255, 255, 255, 0.8);
-				text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-			}
+		.masthead .navbar-inverse .nav > li > a {
+			color: rgba(255, 255, 255, 0.8);
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+		}
 
-			.masthead .navbar .nav > li > a:hover {
-				background-color: transparent;
-				text-decoration: none;
-			}
+		.masthead .navbar .nav > li > a:hover {
+			background-color: transparent;
+			text-decoration: none;
+		}
 
-			.masthead .navbar.navbar-inverse .nav > li > a:hover {
-				color: rgba(255, 255, 255, 0.9);
-			}
+		.masthead .navbar-inverse .nav > li > a:hover {
+			color: rgba(255, 255, 255, 0.9);
+		}
 
-			.masthead .navbar .nav > li.active > a {
-				background-color: rgba(0, 0, 0, 0.1);
-				color: #fff;
-				text-decoration: none;
-			}
+		.masthead .navbar .nav > li.active > a {
+			background-color: rgba(0, 0, 0, 0.1);
+			color: #fff;
+			text-decoration: none;
+		}
 
-			.masthead .navbar.navbar-inverse .nav > li.active > a {
-				background-color: rgba(0, 0, 0, 0.1);
-			}
+		.masthead .navbar-inverse .nav > li.active > a {
+			background-color: rgba(0, 0, 0, 0.1);
+		}
 
-		.masthead .navbar .search-query {
+		.masthead .navbar .dropdown-menu {
+			border-radius: 6px 6px 6px 6px; /* BS3 fix */
+		}
+
+		.masthead .navbar .nav > li > .dropdown-menu:before {
+			/* BS3 fix */
+			border-bottom: 7px solid rgba(0, 0, 0, 0.2);
+			border-left: 7px solid rgba(0, 0, 0, 0);
+			border-right: 7px solid rgba(0, 0, 0, 0);
+			content: "";
+			display: inline-block;
+			left: 9px;
+			position: absolute;
+			top: -7px;
+		}
+
+		.masthead .navbar .nav > li > .dropdown-menu:after {
+			/* BS3 fix */
+			border-bottom: 6px solid #FFFFFF;
+			border-left: 6px solid rgba(0, 0, 0, 0);
+			border-right: 6px solid rgba(0, 0, 0, 0);
+			content: "";
+			display: inline-block;
+			left: 10px;
+			position: absolute;
+			top: -6px;
+		}
+
+		.masthead .navbar .dropdown-submenu > .dropdown-menu {
+			border-radius: 0 6px 6px 6px; /* BS3 fix */
+		}
+
+		.masthead .navbar .navbar-form {
+			margin-top: 5px;
+			margin-bottom: 0px;
+		}
+
+		.search-query {
 			background-image: url(assets/images/search.png);
 			background-repeat: no-repeat;
 			background-attachment: scroll;
 			background-position: 5px 50%;
 			background-size: 16px 16px;
+			border-radius: 15px 15px 15px 15px; /* BS3 fix */
+			font-size: 13px; /* BS3 fix */
 			line-height: 1.5;
-			padding-left: 28px;
+			padding: 4px 14px 4px 28px; /* BS3 fix */
 			position: relative;
 			top: -1px;
-			width: 56px; /* span1 */
+			height: 30px; /* BS3 fix */
 			-webkit-transition: all 0.7s ease 0s;
 			   -moz-transition: all 0.7s ease 0s;
 			    -ms-transition: all 0.7s ease 0s;
@@ -184,14 +227,40 @@ blockquote p {
 			        transition: all 0.7s ease 0s;
 		}
 
-		.masthead .navbar .search-query:focus {
-			padding: 4px 14px 4px 28px;
-			width: 156px; /* span2 */
+		.masthead .navbar .search-query {
+			width: 7em;
 		}
 
-		.masthead .navbar.navbar-inverse .search-query:focus {
-			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.15);
+		.masthead .navbar .search-query:focus {
+			width: 14em;
+		}
+
+		.masthead .navbar-inverse .search-query {
+			color: #fbfbfb;
+			background-color: #515151;
+			border-color: #111111;
+			-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.15);
+			        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.15);
+			color: #ffffff;
+		}
+
+		.masthead .navbar-inverse .search-query:focus {
+			background-color: #fbfbfb;
+			color: #333333;
+			text-shadow: 0 1px 0 #fbfbfb;
+			-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.15);
+			        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.15);
 			border: 1px #111111 solid;
+		}
+
+		.masthead .navbar-inverse .search-query:-moz-placeholder,
+		.masthead .navbar-inverse .search-query::-moz-placeholder {
+			color: #cccccc; /* BS3 fix */
+		}
+
+		.masthead .navbar-inverse .search-query:focus:-moz-placeholder,
+		.masthead .navbar-inverse .search-query:focus::-moz-placeholder {
+			color: #999999; /* BS3 fix */
 		}
 
 /* Tweaks to make navbar dropdowns activate on hover (need to remove data-toggle="dropdown" on links) */
@@ -215,7 +284,8 @@ blockquote p {
 
 article {
 	background-color: #fbfbfb;
-	box-shadow: 0 1px 4px #ccc;
+	-webkit-box-shadow: 0 1px 4px #ccc;
+	        box-shadow: 0 1px 4px #ccc;
 	padding: 1em 2em;
 }
 
@@ -254,6 +324,7 @@ article footer {
 	article footer ul.meta {
 		list-style: none outside none;
 		margin: 0;
+		padding: 0; /* BS3 fix */
 	}
 
 		article footer ul.meta li {
@@ -287,6 +358,7 @@ article footer {
 /*
  * Articles: Not Found;
  */
+
 article.not-found h1 {
 	text-align: center;
 }
@@ -303,12 +375,26 @@ article.not-found form {
 }
 
 
+/*
+ * Image Attachments
+ */
+.image-metadata {
+	margin-bottom: 1em;
+}
+
+
 
 
 
 /*
  * Comments
  */
+
+ .comment-form-author input, 
+ .comment-form-email input, 
+ .comment-form-url input {
+ 	width: 20em !important;  /* BS3 fix */
+ }
 
 .comments-title {
 	margin-bottom: 0;
@@ -321,6 +407,7 @@ article.not-found form {
 .comments-area ol {
 	list-style: none outside none;
 	margin: 0;
+	padding: 0; /* BS3 fix */
 }
 	.comments-area li ol li {
 		margin-left: 2em;
@@ -343,7 +430,7 @@ article.not-found form {
 
 			.comments-area article header cite, .comments-area article header time {
 				display: block;
-				margin-left: 3.5rem;
+				margin-left: 5.5rem;
 			}
 
 			.comments-area article header cite {
@@ -351,11 +438,11 @@ article.not-found form {
 			}
 
 		.comments-area article p.comment-awaiting-moderation {
-			margin-left: 3.5rem;
+			margin-left: 5.5rem;
 		}
 
 		.comments-area article section {
-			margin-left: 3.5rem;
+			margin-left: 5.5rem;
 		}
 
 		.comments-area article section p:last-child {
@@ -403,12 +490,11 @@ article.not-found form {
 
 .widget ul {
     margin: 0 0 10px 0.4em;
-    list-style: disc outside none;
+    padding: 0;  /* BS3 fix */
+    list-style: none;
 }
 
 	.widget ul li {
-		display: block;
-		list-style: none outside none;
 		padding: 0 2px;
 	}
 
@@ -529,11 +615,8 @@ table > caption {
     max-width: 90%;
     padding: 5%;
 	border: 1px solid #ddd !important; /* !important to override wp gallery css rules (#gallery-1 img). */
-	-webkit-border-radius: 4px;
-	   -moz-border-radius: 4px;
-	        border-radius: 4px;
+	border-radius: 4px;
 	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
-	   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
 	        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
 	-webkit-transition: all 0.2s ease-in-out;
 	   -moz-transition: all 0.2s ease-in-out;
@@ -561,7 +644,6 @@ img.header-image,
 .author-avatar img, 
 img.wp-post-image {
 	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-	   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 	        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -569,7 +651,8 @@ img.wp-smiley,
 .rsswidget img {
 	border: 0 none !important;
 	border-radius: 0 0 0 0 !important;
-	box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	        box-shadow: none !important;
 	margin-bottom: 0 !important;
 	margin-top: 0 !important;
 	padding: 0 !important;
@@ -577,8 +660,7 @@ img.wp-smiley,
 
 /* Headings */
 .entry-header .entry-title {
-	font-size: 22px;
-	font-size: 1.571428571rem;
+	font-size: 25px; /* BS3 fix */
 }
 .entry-content h1, 
 .entry-content h2, 
@@ -588,41 +670,36 @@ img.wp-smiley,
 .entry-content h6 {
 	clear: both;
 }
+
 .entry-content h1,
-.comment-content h1 {
-	font-size: 21px;
-	font-size: 1.5rem;
-	line-height: 1.5;
+.comment-content h1, 
+.h1 {
+    font-size: 25px;
 }
 .entry-content h2,
-.comment-content h2 {
-	font-size: 18px;
-	font-size: 1.285714286rem;
-	line-height: 1.6;
+.comment-content h2, 
+.h2 {
+    font-size: 21px;
 }
 .entry-content h3,
-.comment-content h3 {
-	font-size: 16px;
-	font-size: 1.142857143rem;
-	line-height: 1.846153846;
+.comment-content h3, 
+.h3 {
+    font-size: 15px;
 }
 .entry-content h4,
-.comment-content h4 {
-	font-size: 14px;
-	font-size: 1rem;
-	line-height: 1.846153846;
+.comment-content h4, 
+.h4 {
+    font-size: 12px;
 }
 .entry-content h5,
-.comment-content h5 {
-	font-size: 13px;
-	font-size: 0.928571429rem;
-	line-height: 1.846153846;
+.comment-content h5,
+.h5 {
+    font-size: 11px;
 }
 .entry-content h6,
-.comment-content h6 {
-	font-size: 12px;
-	font-size: 0.857142857rem;
-	line-height: 1.846153846;
+.comment-content h6,
+.h6 {
+    font-size: 10px;
 }
 
 

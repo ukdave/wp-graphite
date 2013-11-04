@@ -30,7 +30,7 @@ if ( post_password_required() )
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
 		<nav id="comment-nav-below" class="navigation clearfix" role="navigation">
-			<h1 class="assistive-text section-heading"><?php _e( 'Comment navigation', 'graphite' ); ?></h1>
+			<h1 class="sr-only"><?php _e( 'Comment navigation', 'graphite' ); ?></h1>
 			<div class="nav-next pull-left"><?php next_comments_link( __( '&larr; Newer Comments', 'graphite' ) ); ?></div>
 			<div class="nav-previous pull-right"><?php previous_comments_link( __( 'Older Comments &rarr;', 'graphite' ) ); ?></div>
 		</nav>
@@ -48,27 +48,31 @@ if ( post_password_required() )
 		$aria_req = ( $req ? " aria-required='true'" : '' );
 		$args = array(
 			'fields' => apply_filters( 'comment_form_default_fields', array(
-				'author' => '<div class="comment-form-author">' .
-				                '<div class="input-prepend">' .
-				                    '<span class="add-on"><i class="icon-user"></i></span>' .
-				                    '<input id="author" name="author" type="text" placeholder="' . __( 'Name', 'graphite' ) . ( $req ? ' *' : '' ) . '" value="' . esc_attr( $commenter['comment_author'] ) . '"' . $aria_req . ' />' .
+				'author' => '<div class="form-group comment-form-author">' .
+				                '<label class="sr-only" for="author">'. __( 'Name', 'graphite' ) .'</label>' .
+				                '<div class="input-group">' .
+				                    '<span class="input-group-addon"><i class="icon-user"></i></span>' .
+				                    '<input class="form-control" id="author" name="author" type="text" placeholder="' . __( 'Name', 'graphite' ) . ( $req ? ' *' : '' ) . '" value="' . esc_attr( $commenter['comment_author'] ) . '"' . $aria_req . ' />' .
 				                '</div>' .
 				            '</div>',
-				'email'  => '<div class="comment-form-email">' .
-				                '<div class="input-prepend">' .
-				                    '<span class="add-on"><i class="icon-envelope"></i></span>' .
-				                    '<input id="email" name="email" type="text" placeholder="' . __( 'Email', 'graphite' ) . ( $req ? ' *' : '' ) . '" value="' . esc_attr( $commenter['comment_author_email'] ) . '"' . $aria_req . ' />' .
+				'email'  => '<div class="form-group comment-form-email">' .
+				                '<label class="sr-only" for="author">'. __( 'Email', 'graphite' ) .'</label>' .
+				                '<div class="input-group">' .
+				                    '<span class="input-group-addon"><i class="icon-envelope"></i></span>' .
+				                    '<input class="form-control" id="email" name="email" type="text" placeholder="' . __( 'Email', 'graphite' ) . ( $req ? ' *' : '' ) . '" value="' . esc_attr( $commenter['comment_author_email'] ) . '"' . $aria_req . ' />' .
 				                '</div>' .
 				            '</div>',
-				'url'    => '<div class="comment-form-url">' .
-				                '<div class="input-prepend">' .
-				                    '<span class="add-on"><i class="icon-globe"></i></span>' .
-				                    '<input id="url" name="url" type="text" placeholder="' . __( 'Website', 'graphite' ) . '" value="' . esc_attr( $commenter['comment_author_url'] ) . '" />' .
+				'url'    => '<div class="form-group comment-form-url">' .
+				                '<label class="sr-only" for="author">'. __( 'Website', 'graphite' ) .'</label>' .
+				                '<div class="input-group">' .
+				                    '<span class="input-group-addon"><i class="icon-globe"></i></span>' .
+				                    '<input class="form-control" id="url" name="url" type="text" placeholder="' . __( 'Website', 'graphite' ) . '" value="' . esc_attr( $commenter['comment_author_url'] ) . '" />' .
 				                '</div>' .
 				            '</div>'
 			)),
-			'comment_field'        => 	'<div class="comment-form-comment">' .
-			                                '<textarea id="comment" name="comment" class="input-xxlarge" rows="5" aria-required="true"></textarea>' .
+			'comment_field'        => 	'<div class="form-group comment-form-comment">' .
+			                                '<label class="sr-only" for="comment">'. __( 'Comment', 'graphite' ) .'</label>' .
+			                                '<textarea id="comment" name="comment" class="form-control" rows="5" aria-required="true"></textarea>' .
 			                            '</div>',
 			'must_log_in'          => '<p class="must-log-in">' . sprintf( __( 'You must be <a href="%s">logged in</a> to post a comment.', 'graphite' ), wp_login_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '</p>',
 			'logged_in_as'         => '<p class="logged-in-as">' . sprintf( __( 'Logged in as <a href="%s">%s</a>. <a title="Log out of this account" href="%s">Log out?</a></p>', 'graphite' ), admin_url( 'profile.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ),
