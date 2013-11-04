@@ -22,9 +22,9 @@
 			$author = sprintf( '<a href="%1$s" title="%2$s" rel="author">%3$s</a>',
 				esc_url( get_author_posts_url(get_the_author_meta( 'ID' ) ) ),
 				esc_attr( sprintf( __( 'View all posts by %s', 'graphite' ), get_the_author() ) ),
-				'<i class="icon-large icon-user"></i> ' . get_the_author()
+				'<i class="fa fa-large fa-user"></i> ' . get_the_author()
 			);
-			$date = sprintf( '<a href="%1$s" title="' . __( 'View all posts from %2$s', 'graphite' ) . '" rel="bookmark"><i class="icon-large icon-time"></i> <time class="entry-date" datetime="%3$s">%4$s</time></a>',
+			$date = sprintf( '<a href="%1$s" title="' . __( 'View all posts from %2$s', 'graphite' ) . '" rel="bookmark"><i class="fa fa-large fa-clock-o"></i> <time class="entry-date" datetime="%3$s">%4$s</time></a>',
 				esc_url( get_month_link( get_the_date( 'Y' ), get_the_date( 'm' ) ) ),
 				esc_attr( get_the_date( 'F' ) ),
 				esc_attr( get_the_date( 'c' ) ),
@@ -34,17 +34,17 @@
 			$tags = get_the_tag_list( '', ', ' );
 		?>
 		<ul class="meta">
-			<li><i class="icon-large icon-comment"></i> <?php comments_popup_link( __( 'No comments', 'graphite' ), __( '1 Comment', 'graphite' ), __( '% Comments', 'graphite' ) ); ?></li>
+			<li><i class="fa fa-large fa-comment"></i> <?php comments_popup_link( __( 'No comments', 'graphite' ), __( '1 Comment', 'graphite' ), __( '% Comments', 'graphite' ) ); ?></li>
 			<li><?php echo $author; ?></li>
 			<li><?php echo $date; ?></li>
 			<?php if ( $categories ) : ?>
-				<li><i class="icon-large icon-folder-close"></i> <?php echo $categories; ?></li>
+				<li><i class="fa fa-large fa-folder"></i> <?php echo $categories; ?></li>
 			<?php endif; ?>
 			<?php if ( $tags ) : ?>
-				<li><i class="icon-large icon-tag"></i> <?php echo $tags; ?></li>
+				<li><i class="fa fa-large fa-tag"></i> <?php echo $tags; ?></li>
 			<?php endif; ?>
-			<li><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><i class="icon-large icon-bookmark"></i> <?php _e( 'Permalink', 'graphite' ); ?></a></li>
-			<?php edit_post_link( '<i class="icon-large icon-pencil"></i> ' . __( 'Edit', 'graphite' ), '<li>', '</li>' ); ?>
+			<li><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><i class="fa fa-large fa-bookmark"></i> <?php _e( 'Permalink', 'graphite' ); ?></a></li>
+			<?php edit_post_link( '<i class="fa fa-large fa-pencil"></i> ' . __( 'Edit', 'graphite' ), '<li>', '</li>' ); ?>
 		</ul>
 	</footer><!-- /.entry-meta -->
 </article><!-- /#post -->

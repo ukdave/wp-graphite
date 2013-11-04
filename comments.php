@@ -51,21 +51,21 @@ if ( post_password_required() )
 				'author' => '<div class="form-group comment-form-author">' .
 				                '<label class="sr-only" for="author">'. __( 'Name', 'graphite' ) .'</label>' .
 				                '<div class="input-group">' .
-				                    '<span class="input-group-addon"><i class="icon-user"></i></span>' .
+				                    '<span class="input-group-addon"><i class="fa fa-fw fa-user"></i></span>' .
 				                    '<input class="form-control" id="author" name="author" type="text" placeholder="' . __( 'Name', 'graphite' ) . ( $req ? ' *' : '' ) . '" value="' . esc_attr( $commenter['comment_author'] ) . '"' . $aria_req . ' />' .
 				                '</div>' .
 				            '</div>',
 				'email'  => '<div class="form-group comment-form-email">' .
 				                '<label class="sr-only" for="author">'. __( 'Email', 'graphite' ) .'</label>' .
 				                '<div class="input-group">' .
-				                    '<span class="input-group-addon"><i class="icon-envelope"></i></span>' .
+				                    '<span class="input-group-addon"><i class="fa fa-fw fa-envelope"></i></span>' .
 				                    '<input class="form-control" id="email" name="email" type="text" placeholder="' . __( 'Email', 'graphite' ) . ( $req ? ' *' : '' ) . '" value="' . esc_attr( $commenter['comment_author_email'] ) . '"' . $aria_req . ' />' .
 				                '</div>' .
 				            '</div>',
 				'url'    => '<div class="form-group comment-form-url">' .
 				                '<label class="sr-only" for="author">'. __( 'Website', 'graphite' ) .'</label>' .
 				                '<div class="input-group">' .
-				                    '<span class="input-group-addon"><i class="icon-globe"></i></span>' .
+				                    '<span class="input-group-addon"><i class="fa fa-fw fa-globe"></i></span>' .
 				                    '<input class="form-control" id="url" name="url" type="text" placeholder="' . __( 'Website', 'graphite' ) . '" value="' . esc_attr( $commenter['comment_author_url'] ) . '" />' .
 				                '</div>' .
 				            '</div>'

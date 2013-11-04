@@ -93,9 +93,9 @@ if ( count( $attachments ) > 1 ) {
 						$author = sprintf('<a href="%1$s" title="%2$s" rel="author">%3$s</a>',
 							esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 							esc_attr( sprintf( __( 'View all posts by %s', 'graphite' ), get_the_author() ) ),
-							'<i class="icon-large icon-user"></i> ' . get_the_author()
+							'<i class="fa fa-large fa-user"></i> ' . get_the_author()
 						);
-						$date = sprintf('<a href="%1$s" title="%2$s" rel="bookmark"><i class="icon-large icon-time"></i> <time class="entry-date" datetime="%3$s">%4$s</time></a>',
+						$date = sprintf('<a href="%1$s" title="%2$s" rel="bookmark"><i class="fa fa-large fa-clock-o"></i> <time class="entry-date" datetime="%3$s">%4$s</time></a>',
 							esc_url( get_permalink() ),
 							esc_attr( get_the_time() ),
 							esc_attr( get_the_date( 'c' ) ),
@@ -103,10 +103,10 @@ if ( count( $attachments ) > 1 ) {
 						);
 					?>
 					<ul class="meta">
-						<li><i class="icon-large icon-comment"></i> <?php comments_popup_link( __( 'No comments', 'graphite' ), __( '1 Comment', 'graphite' ), __( '% Comments', 'graphite' ) ); ?></li>
+						<li><i class="fa fa-large fa-comment"></i> <?php comments_popup_link( __( 'No comments', 'graphite' ), __( '1 Comment', 'graphite' ), __( '% Comments', 'graphite' ) ); ?></li>
 						<li><?php echo $author; ?></li>
 						<li><?php echo $date; ?></li>
-						<?php edit_post_link('<i class="icon-large icon-pencil"></i> '. __( 'Edit', 'graphite' ), '<li>', '</li>'); ?>
+						<?php edit_post_link('<i class="fa fa-large fa-pencil"></i> '. __( 'Edit', 'graphite' ), '<li>', '</li>'); ?>
 					</ul>
 				</footer><!-- /.entry-meta -->
 

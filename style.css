@@ -37,10 +37,6 @@ blockquote p {
 	font-size: inherit;
 }
 
-.input-group-addon {
-	min-width: 3.2em; /* BS3 fix */
-}
-
 
 
 /* Animated media queries (http://css-tricks.com/animated-media-queries/) */
@@ -390,18 +386,10 @@ article.not-found form {
  * Comments
  */
 
- .comment-form-author input, 
- .comment-form-email input, 
- .comment-form-url input {
- 	width: 20em !important;  /* BS3 fix */
- }
-
-.comments-title {
-	margin-bottom: 0;
-}
-
-#reply-title {
-	margin-bottom: 0;
+.comment-form-author input, 
+.comment-form-email input, 
+.comment-form-url input {
+	width: 20em !important;  /* BS3 fix */
 }
 
 .comments-area ol {
