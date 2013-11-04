@@ -245,10 +245,6 @@ function graphite_scripts_styles() {
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/assets/bootstrap-3.0.2-custom/js/bootstrap.min.js', array( 'jquery' ), '3.0.2-custom' );
 	wp_enqueue_script( 'graphite', get_template_directory_uri() . '/assets/graphite.js', array( 'jquery' ), '1.2.0' );
 
-	// Load html5shiv
-	wp_enqueue_script( 'html5shiv', get_template_directory_uri() . '/assets/html5shiv-3.6.2pre/html5shiv-printshiv.min.js', array(), '3.6.2pre' );
-	$wp_scripts->add_data( 'html5shiv', 'conditional', 'lt IE 9' );
-
 	// Adds JavaScript to pages with the comment form to support sites with threaded comments (when in use).
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
