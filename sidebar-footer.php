@@ -21,7 +21,7 @@
     	}
     ?>
 <?php else : ?>
-	<div class="span12">
+	<div class="col-md-12">
 		<p>&copy; <?php bloginfo( 'name' ); ?> <?php echo date( 'Y' ); ?></p>
 		<p>Powered by <a href="http://wordpress.org">WordPress</a> and <a href="http://github.com/ukdave/wp-graphite">Graphite</a></p>
 	</div>

@@ -7,5 +7,7 @@
  */
 ?>
 <form method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-	<input type="text" name="s" placeholder="<?php _e( 'Search', 'graphite' ); ?>" class="search-query span2" />
+	<div class="form-group">
+		<input type="text" name="s" placeholder="<?php _e( 'Search', 'graphite' ); ?>" class="form-control search-query" />
+	</div>
 </form>

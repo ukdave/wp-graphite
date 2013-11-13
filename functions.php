@@ -210,7 +210,7 @@ function graphite_setup() {
 		'id' => 'footer-sidebar',
 		'name' => __( 'Footer Sidebar', 'graphite' ),
 		'description' => __( 'Requires exactly 4 widgets', 'graphite' ),
-		'before_widget' => '<div class="widget %2$s span3">',
+		'before_widget' => '<div class="widget %2$s col-md-3">',
 		'before_title' => '<h3>',
 		'after_title' => '</h3>',
 		'after_widget' => '</div>',
@@ -222,18 +222,15 @@ add_action( 'after_setup_theme', 'graphite_setup' );
 /**
  * Enqueues scripts and styles for front-end.
  *
- * Only changea to custom version of bootstrap are:
- *  * Reduce base font size from 14px to 12px.
- *  * Change the sansFontFamily from "'Helvetica Neue', Helvetica, Arial, sans-serif" to "'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif"
- *
  * @since Graphite 1.0.0
  */
 function graphite_scripts_styles() {
 	global $wp_scripts;
 
 	// Enqueue stylesheets
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/bootstrap-2.3.1-custom/css/bootstrap.min.css', array(), '2.3.1-custom') ;
-	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/font-awesome-3.2.1/css/font-awesome.min.css', array(), '3.2.1' );
+	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/bootstrap-3.0.2-custom/css/bootstrap.min.css', array(), '3.0.2-custom') ;
+	wp_enqueue_style( 'bootstrap-theme', get_template_directory_uri() . '/assets/bootstrap-3.0.2-custom/css/bootstrap-theme.min.css', array(), '3.0.2-custom') ;
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/font-awesome-4.0.3/css/font-awesome.min.css', array(), '4.0.3' );
 
 	$protocol = is_ssl() ? 'https' : 'http';
 	$query_args = array(
@@ -242,15 +239,11 @@ function graphite_scripts_styles() {
 	);
 	wp_enqueue_style( 'graphite-fonts', add_query_arg( $query_args, "$protocol://fonts.googleapis.com/css" ), array(), null );
 
-	wp_enqueue_style( 'graphite', get_stylesheet_uri(), array( 'bootstrap', 'font-awesome', 'graphite-fonts' ), '1.1.0');
+	wp_enqueue_style( 'graphite', get_stylesheet_uri(), array( 'bootstrap', 'font-awesome', 'graphite-fonts' ), '1.2.0');
 
 	// Enqueue scripts
-	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/assets/bootstrap-2.3.1-custom/js/bootstrap.min.js', array( 'jquery' ), '2.3.1-custom' );
-	wp_enqueue_script( 'graphite', get_template_directory_uri() . '/assets/graphite.js', array( 'jquery' ), '1.1.0' );
-
-	// Load html5shiv
-	wp_enqueue_script( 'html5shiv', get_template_directory_uri() . '/assets/html5shiv-3.6.2pre/html5shiv-printshiv.min.js', array(), '3.6.2pre' );
-	$wp_scripts->add_data( 'html5shiv', 'conditional', 'lt IE 9' );
+	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/assets/bootstrap-3.0.2-custom/js/bootstrap.min.js', array( 'jquery' ), '3.0.2-custom' );
+	wp_enqueue_script( 'graphite', get_template_directory_uri() . '/assets/graphite.js', array( 'jquery' ), '1.2.0' );
 
 	// Adds JavaScript to pages with the comment form to support sites with threaded comments (when in use).
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
