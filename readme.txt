@@ -3,7 +3,7 @@ Contributors: uk_dave
 Tags: gray, light, one-column, right-sidebar, fixed-width, custom-header, custom-menu, post-formats, theme-options
 Requires at least: 3.5
 Tested up to: 3.6.1
-Stable tag: 1.1.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,5 +34,12 @@ Features optional right-hand sidebar, custom header, custom menu, and widgets in
 * Added animated media queries
 * Updated Font Awesome from 3.0.2 to 3.2.1
 * Added Flickr and GitHub social buttons
+
+= 1.2.0 =
+* Updated to Bootstrap 3.0.2
+* Updated to Font Awesome 4.0.3 
+
+= 1.2.1 =
+* Forgot to update readme.txt in 1.2.0 release
 
 == Upgrade Notice ==
