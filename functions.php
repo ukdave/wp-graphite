@@ -239,11 +239,11 @@ function graphite_scripts_styles() {
 	);
 	wp_enqueue_style( 'graphite-fonts', add_query_arg( $query_args, "$protocol://fonts.googleapis.com/css" ), array(), null );
 
-	wp_enqueue_style( 'graphite', get_stylesheet_uri(), array( 'bootstrap', 'font-awesome', 'graphite-fonts' ), '1.2.0');
+	wp_enqueue_style( 'graphite', get_stylesheet_uri(), array( 'bootstrap', 'font-awesome', 'graphite-fonts' ), '1.2.2');
 
 	// Enqueue scripts
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/assets/bootstrap-3.0.2-custom/js/bootstrap.min.js', array( 'jquery' ), '3.0.2-custom' );
-	wp_enqueue_script( 'graphite', get_template_directory_uri() . '/assets/graphite.js', array( 'jquery' ), '1.2.0' );
+	wp_enqueue_script( 'graphite', get_template_directory_uri() . '/assets/graphite.js', array( 'jquery' ), '1.2.2' );
 
 	// Adds JavaScript to pages with the comment form to support sites with threaded comments (when in use).
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
