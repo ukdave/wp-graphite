@@ -2,8 +2,8 @@
 Contributors: uk_dave
 Tags: gray, light, one-column, right-sidebar, fixed-width, custom-header, custom-menu, post-formats, theme-options
 Requires at least: 3.5
-Tested up to: 3.6.1
-Stable tag: 1.2.1
+Tested up to: 3.7.1
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,5 +41,9 @@ Features optional right-hand sidebar, custom header, custom menu, and widgets in
 
 = 1.2.1 =
 * Forgot to update readme.txt in 1.2.0 release
+
+= 1.2.2 =
+* Fixed background of active menu link
+* Tested with Wordpress 3.7.1
 
 == Upgrade Notice ==
